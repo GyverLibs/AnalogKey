@@ -1,0 +1,121 @@
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+![author](https://img.shields.io/badge/author-AlexGyver-informational.svg)
+# AnalogKey
+Библиотека для работы с аналоговой клавиатурой для Arduino
+- Встроенный простенький дебаунс
+- Оптимальный опрос пина по таймеру
+- Проверка конкретной кнопки или вывод номера нажатой
+
+### Совместимость
+Совместима со всеми Arduino платформами (используются Arduino-функции)
+
+## Содержание
+- [Установка](#install)
+- [Инициализация](#init)
+- [Использование](#usage)
+- [Пример](#example)
+- [Версии](#versions)
+- [Баги и обратная связь](#feedback)
+
+<a id="install"></a>
+## Установка
+- Библиотеку можно найти по названию **AnalogKey** и установить через менеджер библиотек в:
+    - Arduino IDE
+    - Arduino IDE v2
+    - PlatformIO
+- [Скачать библиотеку](https://github.com/GyverLibs/AnalogKey/archive/refs/heads/main.zip) .zip архивом для ручной установки:
+    - Распаковать и положить в *C:\Program Files (x86)\Arduino\libraries* (Windows x64)
+    - Распаковать и положить в *C:\Program Files\Arduino\libraries* (Windows x32)
+    - Распаковать и положить в *Документы/Arduino/libraries/*
+    - (Arduino IDE) автоматическая установка из .zip: *Скетч/Подключить библиотеку/Добавить .ZIP библиотеку…* и указать скачанный архив
+- Читай более подробную инструкцию по установке библиотек [здесь](https://alexgyver.ru/arduino-first/#%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0_%D0%B1%D0%B8%D0%B1%D0%BB%D0%B8%D0%BE%D1%82%D0%B5%D0%BA)
+
+<a id="init"></a>
+## Инициализация
+```cpp
+// указываем пин и количество кнопок
+AnalogKey<A0, 16> keys;
+```
+
+<a id="usage"></a>
+## Использование
+```cpp
+void attach(uint8_t num, int value);    // подключает кнопку на указанное значение
+void setWindow(int window);             // устанавливает окно сигнала (умолч. 20)
+bool status(uint8_t num);               // возвращает статус указанной кнопки
+int pressed();                          // выводит номер нажатой кнопки или -1, если нажатых кнопок нет
+```
+
+<a id="example"></a>
+## Пример
+Остальные примеры смотри в **examples**!
+```cpp
+/*
+  Сигналы кнопок
+  1023
+  927
+  856
+  783
+  671
+  632
+  590
+  560
+  504
+  480
+  455
+  440
+  399
+  319
+  255
+  230
+*/
+#include "AnalogKey.h"
+// указываем пин и количество кнопок
+AnalogKey<A0, 16> keys;
+
+void setup() {
+  Serial.begin(9600);
+  
+  // назначаем кнопкам их сигналы
+  keys.attach(0, 1023);
+  keys.attach(1, 927);
+  keys.attach(2, 856);
+  keys.attach(3, 783);
+  keys.attach(4, 671);
+  keys.attach(5, 632);
+  keys.attach(6, 590);
+  keys.attach(7, 560);
+  keys.attach(8, 504);
+  keys.attach(9, 480);
+  keys.attach(10, 455);
+  keys.attach(11, 440);
+  keys.attach(12, 399);
+  keys.attach(13, 319);
+  keys.attach(14, 255);
+  keys.attach(15, 230);
+}
+
+void loop() {  
+  // проверяем каждую кнопку в ручном режиме
+  if (keys.status(0)) Serial.println("press 0");
+  if (keys.status(1)) Serial.println("press 1");
+  if (keys.status(2)) Serial.println("press 2");
+  if (keys.status(3)) Serial.println("press 3");
+  if (keys.status(4)) Serial.println("press 4");
+  if (keys.status(5)) Serial.println("press 5");
+  if (keys.status(6)) Serial.println("press 6");
+
+  // или выводим номер текущей нажатой (-1 значит ни одна не нажата)
+  if (keys.pressed() != -1) Serial.println(keys.pressed());
+  delay(10);
+}
+```
+
+<a id="versions"></a>
+## Версии
+- v1.0
+
+<a id="feedback"></a>
+## Баги и обратная связь
+При нахождении багов создавайте **Issue**, а лучше сразу пишите на почту [alex@alexgyver.ru](mailto:alex@alexgyver.ru)  
+Библиотека открыта для доработки и ваших **Pull Request**'ов!

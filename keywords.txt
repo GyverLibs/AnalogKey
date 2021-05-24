@@ -1,0 +1,22 @@
+#######################################
+# Syntax Coloring Map For AnalogKey
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+AnalogKey	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+attach	KEYWORD2
+setWindow	KEYWORD2
+status	KEYWORD2
+pressed	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
