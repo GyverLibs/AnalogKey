@@ -136,7 +136,7 @@ void loop() {
 
 <a id="versions"></a>
 ## Versions
--v1.0
+- v1.0
 - v1.1 - optimization, window size logic changed
 
 <a id="feedback"></a>
