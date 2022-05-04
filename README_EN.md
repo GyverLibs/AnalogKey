@@ -1,11 +1,5 @@
 This is an automatic translation, may be incorrect in some places. See sources and examples!
 
-#versions)
-[![Foo](https://img.shields.io/badge/Website-AlexGyver.ru-blue.svg?style=flat-square)](https://alexgyver.ru/)
-[![Foo](https://img.shields.io/badge/%E2%82%BD$%E2%82%AC%20%D0%9D%D0%B0%20%D0%BF%D0% B8%D0%B2%D0%BE-%D1%81%20%D1%80%D1%8B%D0%B1%D0%BA%D0%BE%D0%B9-orange.svg?style=flat-square )](https://alexgyver.ru/support_alex/)
-
-[![Foo](https://img.shields.io/badge/README-ENGLISH-brightgreen.svg?style=for-the-badge)](https://github-com.translate.goog/GyverLibs/ AnalogKey?_x_tr_sl=ru&_x_tr_tl=en)
-
 # AnalogKey
 Analog Keyboard Library for Arduino
 - Built-in simple debounce
@@ -39,7 +33,7 @@ Compatible with all Arduino platforms (using Arduino functions)
 <a id="init"></a>
 ## Initialization
 ```cpp
-AnalogKey<A0, 16> keys;// specify the pin and the number of buttons
+AnalogKey<A0, 16> keys; // specify the pin and the number of buttons
 AnalogKey<A0, 16, signals> keys; // specify the pin, the number of buttons and the external array of signals
 ```
 
