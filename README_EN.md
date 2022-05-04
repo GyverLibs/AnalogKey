@@ -41,7 +41,7 @@ AnalogKey<A0, 16, signals> keys; // specify the pin, the number of buttons and t
 void attach(uint8_t num, int value); // connects the button to the specified value
 void setWindow(int window); // sets signal window (default 40)
 bool status(uint8_tnum); // returns the status of the specified button
-int pressed(); // prints the number of the pressed button or - 1 if there are no buttons pressed
+int pressed(); // prints the number of the pressed button or -1 if there are no buttons pressed
 ```
 ### How to work
 - Measure and record signals from the keyboard (for example, output values ​​to the port monitor)
@@ -84,8 +84,8 @@ void loop() {
   if (keys.status(4)) Serial.println("press 4");if (keys.status(5)) Serial.println("press 5");
   if (keys.status(6)) Serial.println("press 6");
 
-  // or display the number of the currently pressed one (- 1 means none is pressed)
-  if (keys.pressed() != - 1) Serial.println(keys.pressed());
+  // or display the number of the currently pressed one (-1 means none is pressed)
+  if (keys.pressed() != -1) Serial.println(keys.pressed());
   delay(10);
 }
 ```
@@ -128,8 +128,8 @@ void loop() {
   if (keys.status(5)) Serial.println("press 5");
   if (keys.status(6)) Serial.println("press 6");
 
-  // or display the number of the currently pressed one (- 1 means none is pressed)
-  if (keys.pressed() != - 1) Serial.println(keys.pressed());
+  // or display the number of the currently pressed one (-1 means none is pressed)
+  if (keys.pressed() != -1) Serial.println(keys.pressed());
   delay(10);
 }
 ```
