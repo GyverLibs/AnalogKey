@@ -28,7 +28,7 @@ public:
         else signals_p[num] = value;
     }
 
-    // устанавливает окно сигнала (умолч. 20)
+    // устанавливает окно сигнала (умолч. 40)
     void setWindow(int window) {
         _window = window / 2;
     }
