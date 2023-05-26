@@ -39,14 +39,14 @@ public:
             tmr = millis();
             int16_t thisRead = analogRead(PIN);
             _ready = (abs(thisRead - _lastRead) < _window);
-            _lastRead = thisRead;		
+            _lastRead = thisRead;        
         }
         return check(num);
     }
     
     // выводит номер нажатой кнопки или -1, если нажатых кнопок нет
     int pressed() {
-        status(0);	// вызываем опрос
+        status(0);    // вызываем опрос
         for (uint8_t i = 0; i < AMOUNT; i++) {
             if (check(i)) return i;
         }
