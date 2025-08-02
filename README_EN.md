@@ -37,19 +37,19 @@ Compatible with all arduino platforms (used arduino functions)
 
 <a id="init"> </a>
 ## initialization
-`` `CPP
+```CPP
 Analogkey <a0, 16> keys;// Specify the PIN and the number of buttons
 Analogkey <a0, 16, Signals> keys;// Specify PIN, number of buttons and external array of signals
-`` `
+```
 
 <a id="usage"> </a>
 ## Usage
-`` `CPP
+```CPP
 VOID attach (uint8_t num, int velue);// connects the button to the specified value
 VOID Setwindow (Intsdow);// sets the signal window (silence 40)
 Bool Status (uint8_t num);// returns the status of the specified button
 Intsed ();// displays the number of the pressed button or -1, if there are no buttons pressed
-`` `
+```
 ### How to work
 - measure and write signals from the keyboard (for example, display values to the port monitor)
 - Pass the values to the library:
@@ -61,7 +61,7 @@ Intsed ();// displays the number of the pressed button or -1, if there are no bu
 <a id="EXAMPLE"> </a>
 ## Example
 ### External array
-`` `CPP
+```CPP
 #include "AnaLogkey.h"
 // Create an array of signal values from buttons
 int16_t sigs [16] = {{
@@ -96,10 +96,10 @@ VOID loop () {
   if (keys.pressed ()! = -1) serial.println (keys.pressed ());
   Delay (10);
 }
-`` `
+```
 
 ### Inner array
-`` `CPP
+```CPP
 #include "AnaLogkey.h"
 // Specify the PIN and the number of buttons
 Analogkey <a0, 16> keys;
@@ -140,12 +140,49 @@ VOID loop () {
   if (keys.pressed ()! = -1) serial.println (keys.pressed ());
   Delay (10);
 }
-`` `
+```
+### Window as a percentage
+```CPP
+#include "AnaLogkey.h"
+// Create an array of signal values from buttons
+int16_t sigs [16] = {{
+  1023, 927, 856, 783,
+  671, 632, 590, 560,
+  504, 480, 455, 440,
+  399, 319, 255, 230
+};
+
+// Specify PIN, number of buttons and array of values
+ANALOGKEY <A0, 16, sigs> keys;
+
+VOID setup () {
+  Serial.Begin (9600);
+
+  // The survey window is one-third of the gap with the previous or next button that has the closest value
+  keys.setwindow (0);
+}
+
+VOID loop () {
+  // Check each button in manual mode
+  if (keys.status (0)) serial.println ("Press 0");
+  if (keys.status (1)) serial.println ("Press 1");
+  if (keys.status (2)) serial.println ("Press 2");
+  if (keys.status (3)) serial.println ("Press 3");
+  if (keys.status (4)) serial.println ("Press 4");
+  if (keys.status (5)) serial.println ("Press 5");
+  if (keys.status (6)) serial.println ("Press 6");
+
+  // or display the number of the current pressed (-1 means not one is pressed)
+  if (keys.pressed ()! = -1) serial.println (keys.pressed ());
+  Delay (10);
+}
+```
 
 <a id="versions"> </a>
 ## versions
 - V1.0
 - v1.1 - optimization, the logic of the window size has been changed
+- v1.2 - adding a window as a percentage
 
 <a id="feedback"> </a>
 ## bugs and feedback
