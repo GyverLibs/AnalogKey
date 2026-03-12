@@ -6,6 +6,9 @@
 
 [![Foo](https://img.shields.io/badge/ПОДПИСАТЬСЯ-НА%20ОБНОВЛЕНИЯ-brightgreen.svg?style=social&logo=telegram&color=blue)](https://t.me/GyverLibs)
 
+|⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️<br><br>**ВНИМАНИЕ, БИБЛИОТЕКА УСТАРЕЛА! ИСПОЛЬЗУЙ БИБЛИОТЕКУ [GyverKey](https://github.com/GyverLibs/GyverKey)**<br><br>⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️|
+| --- |
+
 # AnalogKey
 Библиотека для работы с аналоговой клавиатурой для Arduino
 - Встроенный простенький дебаунс
